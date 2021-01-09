@@ -1,0 +1,8 @@
+.settings
+.project
+target
+.classpath
+.idea
+*.iml
+pom.xml.versionsBackup
+logs

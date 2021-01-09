@@ -1,0 +1,72 @@
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <property scope="context" name="logging.path" value="./logs"/>
+    <property scope="context" name="logging.level" value="INFO"/>
+    <property scope="context" name="logging.level.mapper" value="DEBUG"/>
+
+    <!--打印日志到 mybatis-mapper.log 的appender-->
+    <appender name="MAPPER-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>${logging.level}</level>
+        </filter>
+        <file>${logging.path}/mybatis-mapper.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${logging.path}/mybatis-mapper.log.%d{yyyy-MM-dd}</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!--打印日志到 mybatis-mapper.log 的 appender-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>${logging.level.mapper}</level>
+        </filter>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 错误日志 appender: 按照每天生成日志文件 -->
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <!-- 过滤器, 只记录 error 级别的日志 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>error</level>
+        </filter>
+        <!-- 日志名称 -->
+        <file>${logging.path}/mybatis-error.log</file>
+        <!-- 每天生成一个日志文件，保存30天的日志文件 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名:按天回滚 daily -->
+            <FileNamePattern>${logging.path}/mybatis-error.log.%d{yyyy-MM-dd}</FileNamePattern>
+            <!--日志文件保留天数-->
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期, %thread表示线程名, %-5level: 级别从左显示5个字符宽度, %msg：日志消息, %n是换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+            <!-- 编码 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    
+    <!-- 控制Mybatis的日志级别为DEBUG, 并且只输出到控制台 -->
+    <logger name="org.apache.ibatis" level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="com.loserico.mybatis.mapper" level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ERROR"/>
+        <appender-ref ref="MAPPER-APPENDER" />
+    </logger>
+
+    <!--<root level="${logging.level}">
+        <appender-ref ref="CONSOLE" />
+    </root>-->
+</configuration>
