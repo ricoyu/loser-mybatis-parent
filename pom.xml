@@ -10,7 +10,10 @@
     <url>http://maven.apache.org</url>
 
     <modules>
-        <module>mybatis-eden</module>
+        <module>1-mybatis-eden</module>
+        <module>2-mybatis-plugin</module>
+        <module>3-mybatis-cache</module>
+        <module>4-mybatis-sql</module>
     </modules>
 
     <properties>
@@ -73,6 +76,13 @@
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>3.27.0-GA</version>
+                <scope>compile</scope>
+                <optional>true</optional>
+            </dependency>
 
             <dependency>
                 <groupId>junit</groupId>
@@ -129,6 +139,67 @@
                 <version>${powermock.version}</version>
                 <scope>test</scope>
             </dependency>
+            
+            <dependency>
+                <groupId>com.loserico</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>4.7.20</version>
+            </dependency>
+            <dependency>
+                <groupId>com.loserico</groupId>
+                <artifactId>commons-spring</artifactId>
+                <version>4.7.20</version>
+            </dependency>
+            <dependency>
+                <groupId>com.loserico</groupId>
+                <artifactId>loser-cache</artifactId>
+                <version>4.7.20</version>
+            </dependency>
+            <dependency>
+                <groupId>com.loserico</groupId>
+                <artifactId>loser-json</artifactId>
+                <version>4.7.20</version>
+            </dependency>
+            <dependency>
+                <groupId>com.loserico</groupId>
+                <artifactId>loser-codec</artifactId>
+                <version>4.7.20</version>
+            </dependency>
+            <dependency>
+                <groupId>com.loserico</groupId>
+                <artifactId>loser-networking</artifactId>
+                <version>4.7.20</version>
+            </dependency>
+            <dependency>
+                <groupId>com.loserico</groupId>
+                <artifactId>loser-web</artifactId>
+                <version>4.7.20</version>
+            </dependency>
+            <dependency>
+                <groupId>com.loserico</groupId>
+                <artifactId>loser-validation</artifactId>
+                <version>4.7.20</version>
+            </dependency>
+            <dependency>
+                <groupId>com.loserico</groupId>
+                <artifactId>loser-orm</artifactId>
+                <version>4.7.20</version>
+            </dependency>
+            <dependency>
+                <groupId>com.loserico</groupId>
+                <artifactId>loser-workbook</artifactId>
+                <version>4.7.20</version>
+            </dependency>
+            <dependency>
+                <groupId>com.loserico</groupId>
+                <artifactId>loser-mongo</artifactId>
+                <version>4.7.20</version>
+            </dependency>
+            <dependency>
+                <groupId>com.loserico</groupId>
+                <artifactId>loser-token-parser</artifactId>
+                <version>4.7.20</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -137,6 +208,10 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
         </dependency>
     </dependencies>
     

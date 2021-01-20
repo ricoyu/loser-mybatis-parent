@@ -10,3 +10,4 @@ create table t_user(
 );
 
 insert into t_user(id, user_name, create_time) values (1, "ricoyu", '2021-01-09 14:41:12');
+insert into t_user(id, user_name, create_time) values (2, "JimGreen", '2021-01-11 14:41:12');

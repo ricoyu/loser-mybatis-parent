@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.loserico.mybatis.eden.mapper.UserMapper">
+    <cache></cache>
+
+    <select id="selectById" resultType="com.loserico.mybatis.eden.entity.User">
+        select id,user_name,create_time from t_user where id=${param1}
+    </select>
+</mapper>
