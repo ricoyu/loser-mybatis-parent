@@ -52,13 +52,13 @@ public class RedisCache implements Cache {
 			return;
 		}
 		
-		JedisUtils.HASH.hset(CACHE_KEY_BYTES, toBytes(key), FstUtils.serialize(value));
+		JedisUtils.HASH.hset(CACHE_KEY_BYTES, toBytes(key), FstUtils.toBytes(value));
 	}
 	
 	@Override
 	public Object getObject(Object key) {
 		byte[] bytes = JedisUtils.HASH.hget(CACHE_KEY_BYTES, toBytes(key));
-		return FstUtils.deserialize(bytes);
+		return FstUtils.toObject(bytes);
 	}
 	
 	@Override

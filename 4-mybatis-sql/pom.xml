@@ -4,7 +4,7 @@
     <artifactId>4-mybatis-sql</artifactId>
     <packaging>jar</packaging>
     <version>${project.parent.version}</version>
-    <name>Mybatis Cache</name>
+    <name>Mybatis SQL</name>
     <url>http://maven.apache.org</url>
 
     <parent>
