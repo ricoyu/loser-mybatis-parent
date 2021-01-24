@@ -55,6 +55,12 @@ public class SqlTest {
 	}
 	
 	@Test
+	public void testSelectById() {
+		User user = userMapper.selectById(1L);
+		System.out.println(user);
+	}
+	
+	@Test
 	public void testMybatisForEach() {
 		List<String> usernames = asList("ricoyu", "jim");
 		
