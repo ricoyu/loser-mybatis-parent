@@ -20,6 +20,8 @@
         <encoding>UTF-8</encoding>
         <jdk.version>1.8</jdk.version>
         <mysql-connector-java.version>8.0.21</mysql-connector-java.version>
+        <ognl.version>3.2.15</ognl.version>
+        
         <slf4j.version>1.7.30</slf4j.version>
         <logback.version>1.2.3</logback.version>
 
@@ -44,7 +46,11 @@
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql-connector-java.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>ognl</groupId>
+                <artifactId>ognl</artifactId>
+                <version>${ognl.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.loserico</groupId>
                 <artifactId>commons-lang</artifactId>

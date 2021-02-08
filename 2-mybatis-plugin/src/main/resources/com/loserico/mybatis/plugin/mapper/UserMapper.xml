@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.loserico.mybatis.plugin.mapper.UserMapper">
+
+    <select id="selectByUsernames" resultType="com.loserico.mybatis.plugin.entity.User">
+        select * from t_user
+        where user_name in 
+        <foreach collection="list" item="username" index="i" open="(" close=")" separator=",">
+            #{username}
+        </foreach>
+    </select>
+
+    <select id="selectIn" resultType="com.loserico.mybatis.plugin.entity.User">
+        select * from t_user where user_name in #{usernames}
+    </select>
+
+</mapper>

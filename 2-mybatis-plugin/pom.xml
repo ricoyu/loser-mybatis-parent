@@ -19,10 +19,26 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
+        <dependency>
+            <groupId>ognl</groupId>
+            <artifactId>ognl</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.loserico</groupId>
             <artifactId>commons-lang</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.loserico</groupId>
+            <artifactId>loser-cache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.loserico</groupId>
+            <artifactId>loser-json</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.loserico</groupId>
+            <artifactId>loser-token-parser</artifactId>
         </dependency>
 
 

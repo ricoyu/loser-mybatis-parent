@@ -13,6 +13,10 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
         <setting name="logImpl" value="slf4j"/>
     </settings>
+    
+    <plugins>
+        <plugin interceptor="com.loserico.mybatis.plugin.plugins.ExecutorPlugin"/>
+    </plugins>
 
     <environments default="dev">
         <environment id="dev">
